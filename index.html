@@ -11,12 +11,14 @@
 
 <body>
   <!-- start project -->
-  <div>
-    <input type="text" id="quoteInput" placeholder="الفائدة" required>
-    <input type="text" id="authorInput" placeholder="المؤلف" required>
-    <button onclick="addQuote()">+</button>
+  <div class="inputs">
+    <input type="text" id="quoteInput" class="quote-input" placeholder="الفائدة" required>
+    <button onclick="addQuote()" class="add-button">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <input type="text" id="authorInput" class="author-input" placeholder="المؤلف" required>
   </div>
-  <div id="quoteList"></div>
+  <div id="quoteList" class="quote-list"></div>
   <!-- end project -->
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>

@@ -4,7 +4,10 @@ function addQuote() {
   var quoteList = document.getElementById("quoteList");
 
   if (!quote || !author) {
-    alert("Please enter a quote and author.");
+    Swal.fire({
+      title: 'يجب عليك ملأ الخانات أولًا',
+      confirmButtonText: 'حسنًا'
+    });
     return;
   }
 
@@ -45,9 +48,45 @@ function addQuote() {
   document.getElementById("authorInput").value = "";
 }
 
+/*
 // Load any saved quotes when the page loads
 window.onload = function() {
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
+  var quoteList = document.getElementById("quoteList");
+
+  for (var i = 0; i < savedQuotes.length; i++) {
+    var newQuoteItem = document.createElement("div");
+    newQuoteItem.classList.add("quote-card");
+
+    var quoteText = document.createElement("div");
+    quoteText.innerText = savedQuotes[i].quote;
+    quoteText.classList.add("quote-text");
+    newQuoteItem.appendChild(quoteText);
+
+    var authorText = document.createElement("div");
+    authorText.innerText = "- " + savedQuotes[i].author;
+    authorText.classList.add("author-text");
+    newQuoteItem.appendChild(authorText);
+
+    var deleteButton = document.createElement("div");
+    deleteButton.innerHTML = '<ion-icon name="trash"></ion-icon>';
+    deleteButton.classList.add("delete-button");
+    deleteButton.onclick = createDeleteHandler(savedQuotes[i], newQuoteItem);
+    newQuoteItem.appendChild(deleteButton);
+
+    quoteList.appendChild(newQuoteItem);
+  }
+}
+*/
+
+window.onload = function() {
+  var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
+
+  // Shuffle the savedQuotes array
+  savedQuotes.sort(function() {
+    return Math.random() - 0.5;
+  });
+
   var quoteList = document.getElementById("quoteList");
 
   for (var i = 0; i < savedQuotes.length; i++) {
@@ -77,12 +116,25 @@ window.onload = function() {
 // Helper function to create a delete handler function for each quote
 function createDeleteHandler(quote, quoteItem) {
   return function() {
-    // Remove the quote from the savedQuotes array and update local storage
-    var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-    savedQuotes.splice(savedQuotes.indexOf(quote), 1);
-    localStorage.setItem("quotes", JSON.stringify(savedQuotes));
 
-    // Remove the quote item from the quote list
-    quoteItem.remove();
+    Swal.fire({
+      title: 'هل أنت متأكد من أنك تريد حذف هذه الفائدة؟',
+      showConfirmButton: false,
+      showCancelButton: true,
+      showDenyButton: true,
+      denyButtonText: `حذف`,
+      cancelButtonText: 'إلغاء',
+    }).then((result) => {
+      if (result.isDenied) {
+        // Remove the quote from the savedQuotes array and update local storage
+        var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
+        savedQuotes.splice(savedQuotes.indexOf(quote), 1);
+        localStorage.setItem("quotes", JSON.stringify(savedQuotes));
+
+        // Remove the quote item from the quote list
+        quoteItem.remove();
+      }
+    });
+
   };
 }
