@@ -48,39 +48,8 @@ function addQuote() {
   document.getElementById("authorInput").value = "";
 }
 
-/*
-// Load any saved quotes when the page loads
 window.onload = function() {
-  var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-  var quoteList = document.getElementById("quoteList");
 
-  for (var i = 0; i < savedQuotes.length; i++) {
-    var newQuoteItem = document.createElement("div");
-    newQuoteItem.classList.add("quote-card");
-
-    var quoteText = document.createElement("div");
-    quoteText.innerText = savedQuotes[i].quote;
-    quoteText.classList.add("quote-text");
-    newQuoteItem.appendChild(quoteText);
-
-    var authorText = document.createElement("div");
-    authorText.innerText = "- " + savedQuotes[i].author;
-    authorText.classList.add("author-text");
-    newQuoteItem.appendChild(authorText);
-
-    var deleteButton = document.createElement("div");
-    deleteButton.innerHTML = '<ion-icon name="trash"></ion-icon>';
-    deleteButton.classList.add("delete-button");
-    deleteButton.onclick = createDeleteHandler(savedQuotes[i], newQuoteItem);
-    newQuoteItem.appendChild(deleteButton);
-
-    quoteList.appendChild(newQuoteItem);
-  }
-}
-*/
-
-window.onload = function() {
-  
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
 
   // Shuffle the savedQuotes array
