@@ -6,12 +6,12 @@
 }
 
 @font-face {
-  src: url('fonts/Naskh.ttf');
+  src: url('assets/fonts/Naskh.ttf');
   font-family: "Naskh";
 }
 
 @font-face {
-  src: url('fonts/NaskhB.ttf');
+  src: url('assets/fonts/NaskhB.ttf');
   font-family: "NaskhB";
 }
 
