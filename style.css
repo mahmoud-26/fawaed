@@ -28,6 +28,7 @@ body {
   height: 100vh;
   background-color: var(--gray);
   background-size: 30%;
+  overscroll-behavior-y: contain;
 }
 
 h1,
