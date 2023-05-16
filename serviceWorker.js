@@ -5,6 +5,8 @@ const assets = [
   "/style.css",
   "/script.js",
   "/assets/images/logo.png",
+  "/assets/fonts/Naskh.ttf",
+  "/assets/fonts/NaskhB.ttf"
 ]
 
 self.addEventListener("install", installEvent => {
