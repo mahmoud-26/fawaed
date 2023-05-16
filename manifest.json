@@ -1,0 +1,30 @@
+{
+  "background_color": "#ffffff",
+  "description": "An Arabic Fawaed editor",
+  "dir": "rtl",
+  "display": "standalone",
+  "name": "Fawaed",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Fawaed",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [
+    "books",
+    "education",
+    "personalization",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "type": "image/png",
+      "sizes": "1280x1280"
+    }
+  ],
+  "shortcuts": [],
+  "lang": "ar",
+  "iarc_rating_id": "Any ages"
+}

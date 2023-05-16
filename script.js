@@ -80,6 +80,7 @@ window.onload = function() {
 */
 
 window.onload = function() {
+  
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
 
   // Shuffle the savedQuotes array
@@ -137,4 +138,13 @@ function createDeleteHandler(quote, quoteItem) {
     });
 
   };
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
 }
