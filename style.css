@@ -123,3 +123,11 @@ h6 {
   top: 5px;
   left: 5px;
 }
+
+.empty-message {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 30px;
+  font-family: "NaskhB";
+  color: var(--black);
+}

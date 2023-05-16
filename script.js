@@ -13,7 +13,7 @@ function addQuote() {
 
   // Get the existing quotes from local storage or create an empty array
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-
+  
   // Add the new quote to the array and save it back to local storage
   savedQuotes.push({
     quote: quote,
@@ -51,7 +51,7 @@ function addQuote() {
 window.onload = function() {
 
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-
+  
   // Shuffle the savedQuotes array
   savedQuotes.sort(function() {
     return Math.random() - 0.5;
@@ -78,13 +78,14 @@ window.onload = function() {
     deleteButton.classList.add("delete-button");
     deleteButton.onclick = createDeleteHandler(savedQuotes[i], newQuoteItem);
     newQuoteItem.appendChild(deleteButton);
-
-    quoteList.appendChild(newQuoteItem);
+    quoteList.appendChild(newQuoteItem)
   }
+
 }
 
 // Helper function to create a delete handler function for each quote
 function createDeleteHandler(quote, quoteItem) {
+  
   return function() {
 
     Swal.fire({
@@ -108,6 +109,16 @@ function createDeleteHandler(quote, quoteItem) {
 
   };
 }
+
+setInterval(() => {
+  var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
+  var noQuotesMessage = document.getElementById("noQuotesMessage");
+  if (savedQuotes.length === 0) {
+    noQuotesMessage.style.display = "block";
+  } else if (savedQuotes.length > 0) {
+    noQuotesMessage.style.display = "none";
+  }
+})
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {

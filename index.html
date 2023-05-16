@@ -9,18 +9,6 @@
   <meta name="msapplication-navbutton-color" content="#141A21">
   <meta name="apple-mobile-web-app-status-bar-style" content="#141A21">
   <meta name="description" content="محرر فوائد عربي" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="" />
-  <meta name="twitter:url" content="https://fawaed.vercel.app" />
-  <meta name="twitter:title" content="Fawaed" />
-  <meta name="twitter:description" content="محرر فوائد عربي" />
-  <meta name="twitter:image" content="assets/images/logo.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Fawaed" />
-  <meta property="og:description" content="محرر فوائد عربي" />
-  <meta property="og:site_name" content="Fawaed" />
-  <meta property="og:url" content="https://fawaed.vercel.app" />
-  <meta property="og:image" content="assets/images/logo.png" />
   <title>الفوائد</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="assets/images/logo.png">
@@ -36,7 +24,11 @@
     </button>
     <input type="text" id="authorInput" class="author-input" placeholder="المؤلف" required>
   </div>
-  <div id="quoteList" class="quote-list"></div>
+  <div id="quoteList" class="quote-list">
+  </div>
+  <div id="noQuotesMessage" class="empty-message">
+    لا يوجد فوائد حاليًا قم بإضافة واحدة بالضغط على زر +
+  </div>
   <!-- end project -->
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
