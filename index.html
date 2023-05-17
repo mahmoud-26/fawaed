@@ -16,14 +16,21 @@
 </head>
 
 <script type="text/javascript">
-(function(window, document, dataLayerName, id) {
-window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
-function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
-var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
-var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
-tags.async=!0,tags.src="https://fawaed.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
-!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
-})(window, document, 'dataLayer', 'e4be3731-18bf-47db-b527-e5f77d408b6c');
+  (function(window, document, dataLayerName, id) {
+    window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({ start: (new Date).getTime(), event: "stg.start" });
+    var scripts = document.getElementsByTagName('script')[0],
+      tags = document.createElement('script');
+
+    function stgCreateCookie(a, b, c) { var d = ""; if (c) { var e = new Date;
+        e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString() } document.cookie = a + "=" + b + d + "; path=/" }
+    var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug");
+    stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+    var qP = [];
+    dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug");
+    var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+    tags.async = !0, tags.src = "https://fawaed.containers.piwik.pro/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+    ! function(a, n, i) { a[n] = a[n] || {}; for (var c = 0; c < i.length; c++) ! function(i) { a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function() { var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({ event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1) }) } }(i[c]) }(window, "ppms", ["tm", "cm"]);
+  })(window, document, 'dataLayer', 'e4be3731-18bf-47db-b527-e5f77d408b6c');
 </script>
 
 <body>
@@ -44,17 +51,17 @@ tags.async=!0,tags.src="https://fawaed.containers.piwik.pro/"+id+".js"+qPString,
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!--
+  <!-- Default Statcounter code for Fawaed https://fawaed.vercel.app -->
   <script type="text/javascript">
-    var sc_project = 12881513;
+    var sc_project = 12881983;
     var sc_invisible = 1;
-    var sc_security = "449e362e";
+    var sc_security = "c4fa8eb9";
   </script>
   <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
   <noscript>
-    <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12881513/0/449e362e/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
+    <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12881983/0/c4fa8eb9/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
   </noscript>
-  -->
+  <!-- End of Statcounter Code -->
   <script src="script.js"></script>
 </body>
 
