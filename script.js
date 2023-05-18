@@ -1,3 +1,4 @@
+// ```javascript
 function addQuote() {
   var quote = document.getElementById("quoteInput").value;
   var author = document.getElementById("authorInput").value;
@@ -129,3 +130,4 @@ if ("serviceWorker" in navigator) {
   })
 }
 */
+// ```
