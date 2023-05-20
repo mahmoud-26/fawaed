@@ -53,6 +53,15 @@ window.onload = function() {
 
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
   
+  if (savedQuotes.length > 0) {
+    var randomIndex = Math.floor(Math.random() * savedQuotes.length);
+    var quote = savedQuotes[randomIndex];
+    Swal.fire({
+      title: quote.quote,
+      confirmButtonText: quote.author
+    });
+  }
+  
   // Shuffle the savedQuotes array
   savedQuotes.sort(function() {
     return Math.random() - 0.5;
