@@ -14,7 +14,7 @@ function addQuote() {
 
   // Get the existing quotes from local storage or create an empty array
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-  
+
   // Add the new quote to the array and save it back to local storage
   savedQuotes.push({
     quote: quote,
@@ -52,7 +52,7 @@ function addQuote() {
 window.onload = function() {
 
   var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-  
+
   if (savedQuotes.length > 0) {
     var randomIndex = Math.floor(Math.random() * savedQuotes.length);
     var quote = savedQuotes[randomIndex];
@@ -61,7 +61,7 @@ window.onload = function() {
       confirmButtonText: quote.author
     });
   }
-  
+
   // Shuffle the savedQuotes array
   savedQuotes.sort(function() {
     return Math.random() - 0.5;
@@ -95,7 +95,7 @@ window.onload = function() {
 
 // Helper function to create a delete handler function for each quote
 function createDeleteHandler(quote, quoteItem) {
-  
+
   return function() {
 
     Swal.fire({
@@ -118,6 +118,44 @@ function createDeleteHandler(quote, quoteItem) {
     });
 
   };
+}
+
+var searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", function() {
+  var searchInput = document.getElementById("searchInput").value;
+  searchQuotes(searchInput);
+});
+
+function searchQuotes(searchInput) {
+  var savedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
+  var quoteList = document.getElementById("quoteList");
+  quoteList.innerHTML = "";
+
+  for (var i = 0; i < savedQuotes.length; i++) {
+    var quote = savedQuotes[i];
+    if (quote.quote.includes(searchInput) || quote.author.includes(searchInput)) {
+      var newQuoteItem = document.createElement("div");
+      newQuoteItem.classList.add("quote-card");
+
+      var quoteText = document.createElement("div");
+      quoteText.innerText = quote.quote;
+      quoteText.classList.add("quote-text");
+      newQuoteItem.appendChild(quoteText);
+
+      var authorText = document.createElement("div");
+      authorText.innerText = "- " + quote.author;
+      authorText.classList.add("author-text");
+      newQuoteItem.appendChild(authorText);
+
+      var deleteButton = document.createElement("div");
+      deleteButton.innerHTML = '<ion-icon name="trash"></ion-icon>';
+      deleteButton.classList.add("delete-button");
+      deleteButton.onclick = createDeleteHandler(quote, newQuoteItem);
+      newQuoteItem.appendChild(deleteButton);
+
+      quoteList.appendChild(newQuoteItem);
+    }
+  }
 }
 
 setInterval(() => {
